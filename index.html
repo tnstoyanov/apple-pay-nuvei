@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
     <title>Nuvei Apple Pay Test, Depaho</title>
-    <script src="https://cdn.safecharge.com/safecharge_resources/v1/sc_applepay.min.js"></script>
+    <script src="https://cdn.safecharge.com/safecharge_resources/v1/websdk/safecharge.js"></script> 
     <style type="text/css">
         body, html
         {
@@ -14,5 +14,22 @@
     </style>
   </head>
   <body>
-<iframe src="https://ppp-test.safecharge.com/ppp/purchase.do?merchant_id=3832456837996201334&merchant_site_id=184063&time_stamp=2021-05-1722:59:28&currency=EUR&merchantLocale=en_US&userid=1234567&merchant_unique_id=202105172259287654321&item_name_1=applePayTest&item_number_1=1&item_amount_1=10&item_quantity_1=1&total_amount=10&user_token_id=7654321&first_name=Tony&last_name=Stoyanov&email=integration@tiebreak.solutions&city=Sofia&country=BG&address1=nikolaTeslaStreet&zip=1000&phone1=359888123456&version=4.0.0&notify_url=https://db46a064326442f75c6172ae6772049a.m.pipedream.net&success_url=https://tnstoyanov.github.io/psp-tests/&error_url=https://tnstoyanov.github.io/psp-tests/&pending_url=https://tnstoyanov.github.io/psp-tests/&back_url=https://tnstoyanov.github.io/psp-tests/&checksum=b967c7502506a6e6cf8a76b01dd7ae72a6ab4b696954cc471ef6712e4937a554" frameborder="0" width="100%" height="100%"></iframe>
-   </html>
+
+<script>
+    if (window.ApplePaySession) {
+    var merchantIdentifier = 'github.com/tnstoyanov/psp-tests/tree/main';
+    var promise = ApplePaySession.canMakePaymentsWithActiveCard(merchantIdentifier);
+    promise.then(function (canMakePayments) {
+        if (canMakePayments) {
+        } <button id="apple-pay-button" 
+ trxAmount="15" 
+trxStatus="[function_to_call_when_transaction_completes]">Pay</button> 
+    });
+}
+</script>
+<script>
+    <script 
+src="https://ppp-test.safecharge.com/ppp/purchase.do?merchant_id=3832456837996201334&merchant_site_id=184063&time_stamp=2021-05-1723:34:43&currency=EUR&merchantLocale=en_US&userid=1234567&merchant_unique_id=202105172334437654321&item_name_1=applePayTest&item_number_1=1&item_amount_1=10&item_quantity_1=1&total_amount=10&user_token_id=7654321&first_name=Tony&last_name=Stoyanov&email=integration@tiebreak.solutions&city=Sofia&country=BG&address1=nikolaTeslaStreet&zip=1000&phone1=359888123456&version=4.0.0&notify_url=https://db46a064326442f75c6172ae6772049a.m.pipedream.net&success_url=https://tnstoyanov.github.io/psp-tests/&error_url=https://tnstoyanov.github.io/psp-tests/&pending_url=https://tnstoyanov.github.io/psp-tests/&back_url=https://tnstoyanov.github.io/psp-tests/&checksum=3ec50bfd90d2d9ccdac8bb69ac7857b9e0044a554eaca10d9fb33faa1a499362">
+</script>
+</body>
+ </html>
